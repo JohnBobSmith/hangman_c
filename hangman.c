@@ -23,40 +23,49 @@ int Update();
 
 //Grab a single characer of user input,
 //like when we are playing the game.
-char get_input();
+char get_input()
+{
+    char prompt[] = ">>";
+    
+    printf("Enter a character\n%s", prompt);
+    char input = getchar();
+    printf("You entered: %c\n", input);
+    
+    return input;
+}
 
 //Grab long user input IE solving the puzzle
-char[] get_long_input();
+char get_long_input();
 
 //Ensure entered character matches chosen word
-int verify_character(char character);
+int verify_character(char character[]);
 
 //Ensure the long input matches too
-int verify_long_character(char[] character);
+int verify_long_character(char character[]);
 
 //Pick a random word from a wordlist, chosen from
 //A file call hangman_wordlist.txt.
-char[] get_random_word(char[] pathToWordlist);
+char get_random_word(char pathToWordlist[]);
 
 //Load any generic file. Returns -1 on failure
-int load_file(char[] path);
+int load_file(char path[]);
 
 //Global struct for the hangman graphics
 struct hangman_ascii_art {
-    char[] newgame; //Blank array is path to text based art file
-    char[] bleeding01;
-    char[] bleeding02;
-    char[] bleeding03;
-    char[] bleeding04;
-    char[] dead;
-    
-    char[] splash; 
-    char[] gameover;
+    char splash[100];
+    char new_game[100];
+    char hangman_clean[100];
+    char hangman_bloody_01[100];
+    char hangman_bloody_02[100];
+    char hangman_bloody_03[100];
+    char hangman_bloody_04[100];
+    char hangman_bloody_05[100];
+    char game_over[];
 };
 
 int main()
 {
-    //Main is where our game loop shall be.
+    get_input();
 }
 
 //End of file on September 9th, 2015
